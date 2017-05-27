@@ -44,7 +44,7 @@ class CabinetContainer extends React.Component {
         let formData = new FormData();
         formData.append('file', file, "imageCropped.jpg");
         let xhr = this.uploadRequest(formData);
-        axios.post("http://localhost:3000/upload-photo", formData)
+        axios.post("https://theclinic-server.herokuapp.com/upload-photo", formData)
             .then(res => {
                 this.savePhoto(res.data.fileName);
             });
@@ -52,7 +52,7 @@ class CabinetContainer extends React.Component {
 
     uploadRequest(formData) {
         let xhr = new XMLHttpRequest();
-        xhr.open('POST', "http://localhost:3000/upload-photo", true);
+        xhr.open('POST', "https://theclinic-server.herokuapp.com/upload-photo", true);
         xhr.setRequestHeader("enctype", "multipart/form-data");
         xhr.setRequestHeader("Cache-Control", "no-cache");
         xhr.setRequestHeader("Cache-Control", "no-store");
